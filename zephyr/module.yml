@@ -6,4 +6,5 @@ build:
   cmake: .
   kconfig: Kconfig
   settings:
-    dts_root: dts
+    dts_root: .
+depends: [zmk]
