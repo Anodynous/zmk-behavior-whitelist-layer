@@ -6,11 +6,11 @@
 #define DT_DRV_COMPAT zmk_behavior_whitelist_layer
 
 #include <zephyr/device.h>
+#include <drivers/behavior.h>
 #include <zmk/keymap.h>
 #include <zmk/behavior.h>
 #include <zmk/event_manager.h>
 #include <zmk/events/position_state_changed.h>
-#include <string.h>
 
 static const uint16_t whitelist_keycodes[] = {
     0x002C, /* SPACE */
@@ -100,6 +100,7 @@ static int whitelist_layer_listener(const zmk_event_t *eh) {
 }
 
 static const struct behavior_driver_api whitelist_layer_api = {
+    .locality = BEHAVIOR_LOCALITY_EVENT_SOURCE,
     .binding_pressed = whitelist_layer_pressed,
     .binding_released = whitelist_layer_released,
 };
