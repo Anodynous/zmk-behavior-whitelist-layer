@@ -1,0 +1,12 @@
+# Copyright (c) 2024 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+description: Whitelist-aware momentary layer behavior
+
+compatible: "zmk,behavior-whitelist-layer"
+
+include: one_param.yaml
+
+properties:
+  display-name:
+    type: string

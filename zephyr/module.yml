@@ -1,0 +1,9 @@
+# Copyright (c) 2024 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+name: zmk-behavior-whitelist-layer
+build:
+  cmake: .
+  kconfig: Kconfig
+  settings:
+    dts_root: dts
