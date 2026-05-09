@@ -92,8 +92,7 @@ static int whitelist_layer_listener(const zmk_event_t *eh) {
         layer_active = false;
         active_layer = 0;
         trigger_position = 0;
-        struct zmk_position_state_changed captured = *ev;
-        ZMK_EVENT_RAISE(captured);
+        raise_zmk_position_state_changed(*ev);
         return ZMK_EV_EVENT_CAPTURED;
     }
 
