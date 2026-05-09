@@ -6,8 +6,8 @@
 #define DT_DRV_COMPAT zmk_behavior_whitelist_layer
 
 #include <zephyr/device.h>
-#include <drivers/behavior.h>
 #include <zmk/keymap.h>
+#include <zmk/behavior.h>
 #include <zmk/event_manager.h>
 #include <zmk/events/position_state_changed.h>
 #include <string.h>
