@@ -7,4 +7,3 @@ build:
   kconfig: Kconfig
   settings:
     dts_root: .
-depends: [zmk]
