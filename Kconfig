@@ -1,9 +1,8 @@
 # Copyright (c) 2024 The ZMK Contributors
 # SPDX-License-Identifier: MIT
 
-menu "ZMK Behavior Whitelist Layer"
-    config ZMK_BEHAVIOR_WHITELIST_LAYER
-        bool
-        default y
-        depends on DT_HAS_ZMK_BEHAVIOR_WHITELIST_LAYER_ENABLED
-endmenu
+DT_COMPAT_ZMK_BEHAVIOR_WHITELIST_LAYER := zmk,behavior-whitelist-layer
+
+config ZMK_BEHAVIOR_WHITELIST_LAYER
+    bool
+    default $(dt_compat_enabled,$(DT_COMPAT_ZMK_BEHAVIOR_WHITELIST_LAYER))
