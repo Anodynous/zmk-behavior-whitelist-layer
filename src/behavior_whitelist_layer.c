@@ -12,6 +12,8 @@
 #include <zmk/event_manager.h>
 #include <zmk/events/position_state_changed.h>
 
+#if DT_HAS_COMPAT_STATUS_OKAY(DT_DRV_COMPAT)
+
 static const uint16_t whitelist_keycodes[] = {
     0x002C, /* SPACE */
     0x002A, /* BACKSPACE */
@@ -100,7 +102,6 @@ static int whitelist_layer_listener(const zmk_event_t *eh) {
 }
 
 static const struct behavior_driver_api whitelist_layer_api = {
-    .locality = BEHAVIOR_LOCALITY_EVENT_SOURCE,
     .binding_pressed = whitelist_layer_pressed,
     .binding_released = whitelist_layer_released,
 };
@@ -113,3 +114,5 @@ ZMK_SUBSCRIPTION(whitelist_layer, zmk_position_state_changed);
                             CONFIG_KERNEL_INIT_PRIORITY_DEFAULT, &whitelist_layer_api);
 
 DT_INST_FOREACH_STATUS_OKAY(WHITELIST_LAYER_INST)
+
+#endif /* DT_HAS_COMPAT_STATUS_OKAY(DT_DRV_COMPAT) */

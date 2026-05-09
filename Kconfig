@@ -5,5 +5,4 @@ menu "ZMK Behavior Whitelist Layer"
     config ZMK_BEHAVIOR_WHITELIST_LAYER
         bool
         default y
-        depends on DT_HAS_ZMK_BEHAVIOR_WHITELIST_LAYER_ENABLED
 endmenu
