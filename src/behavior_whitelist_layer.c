@@ -53,7 +53,7 @@ static int whitelist_layer_released(struct zmk_behavior_binding *binding,
 static uint16_t get_keycode_at_pos(uint32_t position, zmk_keymap_layer_id_t layer) {
     const struct zmk_behavior_binding *binding;
 
-    binding = zmk_keymap_get_behavior_binding(position, layer);
+    binding = zmk_keymap_get_layer_binding_at_idx(layer, position);
     if (binding == NULL) {
         return 0;
     }
@@ -92,7 +92,8 @@ static int whitelist_layer_listener(const zmk_event_t *eh) {
         layer_active = false;
         active_layer = 0;
         trigger_position = 0;
-        ZMK_EVENT_RAISE(eh);
+        struct zmk_position_state_changed captured = *ev;
+        ZMK_EVENT_RAISE(captured);
         return ZMK_EV_EVENT_CAPTURED;
     }
 
